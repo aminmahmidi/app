@@ -1,27 +1,27 @@
-import React from 'react';
-import { RouterProvider } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { store } from './store/store';
-import { createBrowserRouter } from 'react-router-dom';
-import Login from './features/auth/Login';
-import Register from './features/auth/Register';
-import BookList from './features/books/BookList';
-import AddBook from './features/books/AddBook';
-import EditBook from './features/books/EditBook';
-import PrivateRoute from './components/PrivateRoute';
+import React from "react";
+import { RouterProvider } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
+import { createBrowserRouter } from "react-router-dom";
+import Login from "./features/auth/Login";
+import Register from "./features/auth/Register";
+import BookList from "./features/books/BookList";
+import AddBook from "./features/books/AddBook";
+import EditBook from "./features/books/EditBook";
+import PrivateRoute from "./components/PrivateRoute";
 
 // Create the router configuration
 const router = createBrowserRouter([
   {
-    path: '/login',
+    index: true,
     element: <Login />,
   },
   {
-    path: '/register',
+    path: "/register",
     element: <Register />,
   },
   {
-    path: '/books',
+    path: "/books",
     element: (
       <PrivateRoute>
         <BookList />
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/books/add',
+    path: "/books/add",
     element: (
       <PrivateRoute>
         <AddBook />
@@ -37,7 +37,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/books/edit/:id',
+    path: "/books/edit/:id",
     element: (
       <PrivateRoute>
         <EditBook />
@@ -45,8 +45,12 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/',
-    element: <PrivateRoute><BookList /></PrivateRoute>, // Redirect to books by default
+    path: "/",
+    element: (
+      <PrivateRoute>
+        <BookList />
+      </PrivateRoute>
+    ), // Redirect to books by default
   },
 ]);
 

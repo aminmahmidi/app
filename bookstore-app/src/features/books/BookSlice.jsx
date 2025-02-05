@@ -1,8 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const API_URL =
-  "http://localhost:3020/api-docs/#/Books/get_api_books"; 
+const API_URL = "http://localhost:3000";
 
 export const fetchBooks = createAsyncThunk(
   "books/fetchBooks",
@@ -14,6 +13,8 @@ export const fetchBooks = createAsyncThunk(
           Authorization: `Bearer ${token}`,
         },
       });
+      console.log(data);
+
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -26,7 +27,7 @@ export const addBook = createAsyncThunk(
   async (bookData, { getState, rejectWithValue }) => {
     try {
       const token = getState().auth.token;
-      const response = await axios.post(`${API_URL}/books`, bookData, {
+      const response = await axios.post(`${API_URL}/api/books`, bookData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

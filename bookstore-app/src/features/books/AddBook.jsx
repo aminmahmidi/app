@@ -21,7 +21,7 @@ const AddBook = () => {
   return (
     <div>
       <h2>Add Book</h2>
-      {error && <p>{error}</p>}
+      {error && <p>{error.message}</p>}
       <form onSubmit={handleSubmit}>
         <input
           type="text"

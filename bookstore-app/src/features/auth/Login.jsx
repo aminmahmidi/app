@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "./authSlice";
 import { useNavigate } from "react-router-dom";
-
+import { FormDiv } from "./FormDiv";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -18,17 +18,20 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <FormDiv>
       <h2>Login</h2>
       {error && <p>{error.message}</p>}
       <form onSubmit={handleSubmit}>
+        <label htmlFor="username">Username</label>
         <input
           type="text"
           placeholder="username"
+          id="username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
         />
+        <label htmlFor="password">Username</label>
         <input
           type="password"
           placeholder="Password"
@@ -40,7 +43,7 @@ const Login = () => {
           {status === "loading" ? "Logging in..." : "Login"}
         </button>
       </form>
-    </div>
+    </FormDiv>
   );
 };
 

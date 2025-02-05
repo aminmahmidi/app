@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addBook } from './bookSlice';
+import { addBook } from './BookSlice';
 import { useNavigate } from 'react-router-dom';
 
 const AddBook = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
+  const [publishDate, setPublishDate] = useState('');
   const dispatch = useDispatch();
   const { status, error } = useSelector((state) => state.books);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const resultAction = await dispatch(addBook({ title, author }));
+    const resultAction = await dispatch(addBook({ title, author,publishDate }));
     if (addBook.fulfilled.match(resultAction)) {
       navigate('/books');
     }
@@ -35,6 +36,13 @@ const AddBook = () => {
           placeholder="Author"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
+          required
+        />
+        <input
+          type="date"
+          placeholder="publish date"
+          value={publishDate}
+          onChange={(e) => setPublishDate(e.target.value)}
           required
         />
         <button type="submit" disabled={status === 'loading'}>

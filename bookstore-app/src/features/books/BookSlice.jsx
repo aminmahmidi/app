@@ -13,9 +13,8 @@ export const fetchBooks = createAsyncThunk(
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log(data);
-
-      return response.data;
+      console.log(response);
+      return response.data.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
     }
@@ -23,7 +22,7 @@ export const fetchBooks = createAsyncThunk(
 );
 
 export const addBook = createAsyncThunk(
-  "books/addBook",
+  "/api/books",
   async (bookData, { getState, rejectWithValue }) => {
     try {
       const token = getState().auth.token;
@@ -32,7 +31,7 @@ export const addBook = createAsyncThunk(
           Authorization: `Bearer ${token}`,
         },
       });
-      return response.data;
+      return response.data.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
     }
@@ -44,7 +43,7 @@ export const updateBook = createAsyncThunk(
   async ({ id, bookData }, { getState, rejectWithValue }) => {
     try {
       const token = getState().auth.token;
-      const response = await axios.put(`${API_URL}/books/${id}`, bookData, {
+      const response = await axios.put(`${API_URL}/api/books/${id}`, bookData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -61,7 +60,7 @@ export const deleteBook = createAsyncThunk(
   async (id, { getState, rejectWithValue }) => {
     try {
       const token = getState().auth.token;
-      await axios.delete(`${API_URL}/books/${id}`, {
+      await axios.delete(`${API_URL}/api/books/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

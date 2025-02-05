@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
-import { updateBook, fetchBooks } from "./bookSlice";
+import { updateBook, fetchBooks } from "./BookSlice";
 
 const EditBook = () => {
   const { id } = useParams();

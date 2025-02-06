@@ -3,6 +3,7 @@ import { RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
 import { createBrowserRouter } from "react-router-dom";
+import "./App.css";
 import Login from "./features/auth/Login";
 import Register from "./features/auth/Register";
 import BookList from "./features/books/BookList";
@@ -14,6 +15,7 @@ import PrivateRoute from "./components/PrivateRoute";
 const router = createBrowserRouter([
   {
     index: true,
+    path: "/login",
     element: <Login />,
   },
   {
@@ -50,7 +52,7 @@ const router = createBrowserRouter([
       <PrivateRoute>
         <BookList />
       </PrivateRoute>
-    ), // Redirect to books by default
+    ),
   },
 ]);
 

@@ -9,9 +9,9 @@ export const Wrapper = styled.div`
   border-bottom: 1px solid var(--border);
   .first {
     display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
   }
   .logo-container {
     color: var(--text-color);
@@ -47,7 +47,7 @@ export const Wrapper = styled.div`
     transition: 0.4s;
   }
   .drop-down-btn:hover {
-    background-color: var(--second-btn);
+    background-color: var(--border);
   }
   .drop-down {
     background-color: var(--secondary-color);
@@ -123,5 +123,33 @@ export const Wrapper = styled.div`
   label svg {
     margin: 0 10px;
     font-size: 18px;
+  }
+  .profile {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    padding-right: 10px;
+  }
+  .logout-btn {
+    border: none;
+    background-color: var(--second-btn);
+    color: var(--text-color);
+    border: 2px solid var(--border);
+    padding: 7px 10px;
+    margin: 10px;
+    border-radius: 7px;
+    cursor: pointer;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.4s;
+  }
+  .footer {
+    margin-top: 400px;
+    text-align: center;
+    align-content: center;
+    display: flex;
+    height: 100px;
   }
 `;

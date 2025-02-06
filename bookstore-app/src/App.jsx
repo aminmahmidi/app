@@ -11,7 +11,6 @@ import AddBook from "./features/books/AddBook";
 import EditBook from "./features/books/EditBook";
 import PrivateRoute from "./components/PrivateRoute";
 import Home from "./features/books/Home";
-import { fetchUser } from "./features/auth/authSlice";
 
 const router = createBrowserRouter([
   {
@@ -56,14 +55,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const dispatch = useDispatch();
-  const user = useSelector((state) => state.auth.user);
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token && !user) {
-      dispatch(fetchUser());
-    }
-  }, [dispatch, user]);
+
   return (
     <Provider store={store}>
       <RouterProvider router={router} />

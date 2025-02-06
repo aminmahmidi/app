@@ -1,19 +1,19 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../features/auth/authSlice";
-
+import { UserCircle } from "@phosphor-icons/react";
 const Profile = () => {
   const user = useSelector((state) => state.auth.user);
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    dispatch(logout());
+  };
   return (
-    <div>
-      <h1>Welcome to the Home Page</h1>
-      {user ? (
-        <div>
-          <h2>Hello, {user.username}!</h2>
-        </div>
-      ) : (
-        <p>Please log in to see your profile.</p>
-      )}
+    <div className="profile">
+      <button type="button" className="logout-btn" onClick={handleLogout}>
+        logout
+      </button>
+      <UserCircle size={50} weight="light" />
     </div>
   );
 };

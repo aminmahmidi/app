@@ -3,14 +3,18 @@
   --text-color: black;
   --input-color: rgb(255, 255, 255);
   --btn-color: #006bff;
-  --secondary-color: #F5F7F8;
+  --second-btn: #ececec;
+  --secondary-color: #f4f4f4;
+  --border: #b6b6b6;
 }
 
 [data-theme="dark"] {
   --background-color: #000a2a;
   --text-color: rgb(241, 241, 241);
   --input-color: #000e22;
+  --second-btn: #001d43;
   --secondary-color: #001a3d;
+  --border: #002d67;
 }
 
 @font-face {
@@ -26,25 +30,8 @@ body {
   font-family: "poppins";
   background-color: var(--background-color);
   color: var(--text-color);
-}
-
-.main {
-  height: 82vh;
-  /* display: grid;
-  align-items: center;
-  text-align: center; */
-  text-align: center;
-  padding-top: 150px;
-}
-.main svg {
-  margin: 20px auto;
-  padding: 0;
-  font-size: 90px;
-}
-.main h3 {
-  margin: 0 auto;
-  padding: 0;
-  font-size: 30px;
+  position: relative;
+  /* overflow: hidden; */
 }
 .footer {
   background-color: var(--secondary-color);

@@ -7,10 +7,10 @@ export const Wrapper = styled.div`
   height: 95vh;
   animation: popout 0.3s alternate;
   @keyframes popout {
-    0%{
+    0% {
       scale: 0.9;
     }
-    100%{
+    100% {
       scale: 1;
     }
   }
@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
     font-size: 2rem;
     text-align: center;
   }
-  a{
+  a {
     color: var(--btn-color);
   }
   input {

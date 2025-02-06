@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   .header {
-    border-bottom: 1.5px solid rgba(128, 128, 128, 0.696);
+    border-bottom: 1.5px solid var(--input-color);
     padding: 10px;
     display: flex;
     align-items: center;
@@ -14,23 +14,23 @@ export const Wrapper = styled.div`
     padding: 12px 15px;
     border-radius: 8px;
     position: relative;
+    display: flex;
+    align-items: center;
   }
-  .logo-container h3 {
-    padding: 0;
-    margin: 0;
+  .logo {
+    font-size: 50px;
+    margin: 0 10px 0 0;
   }
 
   .drop-down-container {
-    margin: 0 20px;
     position: relative;
     align-content: center;
-    display: grid;
   }
 
   .drop-down-btn {
     border: none;
-    background-color: var(--btn-color);
-    color: white;
+    background-color: var(--second-btn);
+    border: 2px solid var(--border);
     font-size: 18px;
     border-radius: 7px;
     padding: 7px 17px;
@@ -42,36 +42,21 @@ export const Wrapper = styled.div`
     transition: 0.4s;
   }
   .drop-down-btn:hover {
-    background-color: #015ee0;
+    background-color: var(--second-btn);
   }
-  .arrow-icon {
-    margin: 0 20px 0 0;
-    display: flex;
-    font-size: 20px;
-    align-content: center;
-    align-items: center;
-    transition: 0.4s;
-  }
-  .arrow-icon-down {
-    margin: 0 20px 0 0;
-    font-size: 20px;
-    display: flex;
-    align-content: center;
-    align-items: center;
-    transform: rotateX(180deg);
-    transition: 0.4s;
-  }
-
   .drop-down {
     position: absolute;
     background-color: var(--background-color);
     border-radius: 10px;
     color: var(--text-color);
     margin: 50px 0 50px 0;
+    border: 2px solid red;
+    left: 0;
     padding: 5px 5px;
-    width: 100%;
     box-shadow: 0px 0px 10px 0px rgba(40, 40, 40, 0.482);
     animation: dropdown 0.3s alternate;
+    overflow: hidden;
+    display: flex;
   }
   @keyframes dropdown {
     0% {
@@ -82,7 +67,9 @@ export const Wrapper = styled.div`
     }
   }
   .show-drop-down {
-    display: grid;
+    display: flex;
+    /* width: 400px; */
+left: -400%;
   }
   .hide-drop-down {
     display: none;
@@ -113,7 +100,6 @@ export const Wrapper = styled.div`
   }
   label {
     margin: 2px 0;
-    /* border-bottom: 1px solid gray; */
     display: flex;
     align-items: center;
     align-content: center;

@@ -14,6 +14,7 @@ const Profile = () => {
         logout
       </button>
       <UserCircle size={50} weight="light" />
+
     </div>
   );
 };

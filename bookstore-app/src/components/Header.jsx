@@ -8,7 +8,7 @@ import {
   PaintBrushBroad,
 } from "@phosphor-icons/react";
 import { Wrapper } from "./HeaderWrapper";
-import AccountIcon from "./AccountIcon";
+import AccountIcon from "./Profile";
 const Header = () => {
   const {
     theme,

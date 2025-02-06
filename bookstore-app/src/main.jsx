@@ -3,10 +3,13 @@ import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
 import { Provider } from "react-redux";
 import { store } from "./store/store.js";
+import { MyProvider } from "./features/theme/ThemeContext.jsx";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={store}>
-      <App />
+      <MyProvider>
+        <App />
+      </MyProvider>
     </Provider>
   </StrictMode>
 );

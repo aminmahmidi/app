@@ -10,7 +10,7 @@ import BookList from "./features/books/BookList";
 import AddBook from "./features/books/AddBook";
 import EditBook from "./features/books/EditBook";
 import PrivateRoute from "./components/PrivateRoute";
-
+import Home from "./features/books/Home";
 // Create the router configuration
 const router = createBrowserRouter([
   {
@@ -23,36 +23,35 @@ const router = createBrowserRouter([
     element: <Register />,
   },
   {
-    path: "/books",
-    element: (
-      <PrivateRoute>
-        <BookList />
-      </PrivateRoute>
-    ),
-  },
-  {
-    path: "/books/add",
-    element: (
-      <PrivateRoute>
-        <AddBook />
-      </PrivateRoute>
-    ),
-  },
-  {
-    path: "/books/edit/:id",
-    element: (
-      <PrivateRoute>
-        <EditBook />
-      </PrivateRoute>
-    ),
-  },
-  {
     path: "/",
-    element: (
-      <PrivateRoute>
-        <BookList />
-      </PrivateRoute>
-    ),
+    element: <Home />,
+    children: [
+      {
+        index: true,
+        path: "/books",
+        element: (
+          <PrivateRoute>
+            <BookList />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/books/add",
+        element: (
+          <PrivateRoute>
+            <AddBook />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/books/edit/:id",
+        element: (
+          <PrivateRoute>
+            <EditBook />
+          </PrivateRoute>
+        ),
+      },
+    ],
   },
 ]);
 

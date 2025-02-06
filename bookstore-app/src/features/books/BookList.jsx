@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchBooks, deleteBook } from "./BookSlice";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 const BookList = () => {
   const dispatch = useDispatch();
@@ -27,6 +27,7 @@ const BookList = () => {
 
   return (
     <div>
+      <Outlet />
       <h2>Books</h2>
       <button onClick={() => navigate("/books/add")}>Add Book</button>
       {books.map((e) => {

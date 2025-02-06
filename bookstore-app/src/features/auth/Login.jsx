@@ -15,7 +15,7 @@ const Login = () => {
     e.preventDefault();
     const resultAction = await dispatch(loginUser({ username, password }));
     if (loginUser.fulfilled.match(resultAction)) {
-      navigate("/books");
+      navigate("/");
     }
   };
 

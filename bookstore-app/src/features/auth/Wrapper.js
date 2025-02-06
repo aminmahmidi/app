@@ -4,41 +4,63 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  height: 95vh;
+  animation: popout 0.3s alternate;
+  @keyframes popout {
+    0%{
+      scale: 0.9;
+    }
+    100%{
+      scale: 1;
+    }
+  }
   .form-container {
-    background-color: rgba(216, 216, 216, 0.35);
+    background-color: var(--secondary-color);
     border-radius: 22px;
-    padding: 20px;
+    padding: 30px;
     width: 400px;
   }
   h2 {
     font-size: 2rem;
     text-align: center;
   }
+  a{
+    color: var(--btn-color);
+  }
   input {
     font-size: 1rem;
+    width: 100%;
     padding: 15px 10px;
-    border-radius: 13px;
+    color: var(--text-color);
     outline: transparent;
     border: none;
     background-color: transparent;
   }
   input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px white inset;
-    box-shadow: 0 0 0px 1000px white inset;
-}
-
+    -webkit-box-shadow: 0 0 0px 1000px var(--input-color) inset;
+    box-shadow: 0 0 0px 1000px var(--input-color) inset;
+  }
+  input:-webkit-autofill {
+    -webkit-text-fill-color: var(--text-color);
+    color: var(--text-color);
+  }
   .input-wrapper {
-    border: 2px solid #006bff;
+    border: 2px solid var(--input-color);
     padding: 0 10px;
-    background-color: white;
     border-radius: 13px;
     display: flex;
     align-items: center;
+    background-color: var(--input-color);
+    color: var(--text-color);
+    transition: 0.3s;
     svg {
       font-size: 22px;
-      color: gray;
+      color: var(--text-color);
+      opacity: 0.8;
     }
+  }
+  .input-wrapper:focus-within {
+    border: 2px solid var(--btn-color);
   }
   label {
     font-size: 1rem;
@@ -54,7 +76,7 @@ export const Wrapper = styled.div`
     width: 100%;
     border-radius: 17px;
     margin-top: 20px;
-    background-color: #006bff;
+    background-color: var(--btn-color);
     color: white;
     cursor: pointer;
   }
@@ -69,9 +91,7 @@ export const Wrapper = styled.div`
       margin: 0 10px;
     }
   }
-  h3{
+  h3 {
     font-weight: lighter;
   }
 `;
-
-

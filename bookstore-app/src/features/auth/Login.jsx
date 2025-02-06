@@ -45,7 +45,7 @@ const Login = () => {
             </div>
           </div>
           <div className="input-container">
-            <label htmlFor="password">Username</label>
+            <label htmlFor="password">Password</label>
             <div className="input-wrapper">
               <Lock />
               <input

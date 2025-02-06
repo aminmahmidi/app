@@ -43,7 +43,7 @@ const Register = () => {
             </div>
           </div>
           <div className="input-container">
-            <label htmlFor="username">Username</label>
+            <label htmlFor="username">Password</label>
 
             <div className="input-wrapper">
               <Lock />

@@ -1,6 +1,13 @@
 import { useContext } from "react";
 import { MyContext } from "../features/theme/ThemeContext";
-import { Sun, Moon, Monitor, CaretDown } from "@phosphor-icons/react";
+import {
+  Sun,
+  Moon,
+  Monitor,
+  CaretDown,
+  BookBookmark,
+} from "@phosphor-icons/react";
+import { Wrapper } from "./HeaderWrapper";
 const Header = () => {
   const {
     theme,
@@ -12,12 +19,12 @@ const Header = () => {
     dropdownRef,
   } = useContext(MyContext);
   return (
-    <div>
-      header
+    <Wrapper>
       <div className="logo-container">
         <div className="header">
           <div className="logo-container">
-            <h3 className="logo"> Amin Mahmidi</h3>
+            <BookBookmark size={32} className="logo" />
+            <h3 > Amin Mahmidi</h3>
           </div>
 
           <div className="drop-down-container" ref={dropdownRef}>
@@ -81,7 +88,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Wrapper>
   );
 };
 

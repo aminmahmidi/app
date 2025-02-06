@@ -11,6 +11,7 @@ import AddBook from "./features/books/AddBook";
 import EditBook from "./features/books/EditBook";
 import PrivateRoute from "./components/PrivateRoute";
 import Home from "./features/books/Home";
+
 // Create the router configuration
 const router = createBrowserRouter([
   {
@@ -23,35 +24,34 @@ const router = createBrowserRouter([
     element: <Register />,
   },
   {
-    path: "/",
-    element: <Home />,
-    children: [
+    path:'/',
+    element:<Home/>,
+    children:[
       {
-        index: true,
-        path: "/books",
+        path: "/",
         element: (
           <PrivateRoute>
             <BookList />
           </PrivateRoute>
         ),
+        children:[  {
+          path: "/books/add",
+          element: (
+            <PrivateRoute>
+              <AddBook />
+            </PrivateRoute>
+          ),
+        },
+        {
+          path: "/books/edit/:id",
+          element: (
+            <PrivateRoute>
+              <EditBook />
+            </PrivateRoute>
+          ),
+        },]
       },
-      {
-        path: "/books/add",
-        element: (
-          <PrivateRoute>
-            <AddBook />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/books/edit/:id",
-        element: (
-          <PrivateRoute>
-            <EditBook />
-          </PrivateRoute>
-        ),
-      },
-    ],
+    ]
   },
 ]);
 

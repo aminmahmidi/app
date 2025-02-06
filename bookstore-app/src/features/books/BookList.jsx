@@ -27,7 +27,6 @@ const BookList = () => {
 
   return (
     <div>
-      <Outlet />
       <h2>Books</h2>
       <button onClick={() => navigate("/books/add")}>Add Book</button>
       {books.map((e) => {

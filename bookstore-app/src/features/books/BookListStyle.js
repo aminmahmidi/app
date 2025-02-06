@@ -3,6 +3,9 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   padding: 10px;
   justify-content: center;
+  .bookList-header {
+    padding: 0 75px;
+  }
   ul {
     display: flex;
     flex-wrap: wrap;
@@ -13,12 +16,15 @@ export const Wrapper = styled.div`
     max-width: 18%;
     padding: 10px;
     height: 330px;
-    margin: 5px;
+    margin: 10px;
     list-style: none;
     border-radius: 12px;
     background-color: var(--secondary-color);
     opacity: 0.7;
     position: relative;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: 0.3s;
     .thumb {
       display: flex;
       border-radius: 7px;
@@ -33,6 +39,39 @@ export const Wrapper = styled.div`
       font-size: 70px;
       opacity: 0.3;
     }
+  }
+
+  .li-loader {
+    flex: 1 1 25%;
+    max-width: 18%;
+    padding: 10px;
+    height: 330px;
+    margin: 10px;
+    list-style: none;
+    border-radius: 12px;
+    background: linear-gradient(to left, var(--secondary-color), transparent);
+    background-size: 200% 100%;
+
+    animation: loader 0.5s infinite alternate;
+    opacity: 0.7;
+    position: relative;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: 0.3s;
+  }
+
+  @keyframes loader {
+    0% {
+      background-position: 100% 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
+  li:hover {
+    box-shadow: 0 10px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    margin-top: -2px;
   }
   .author {
     display: block;

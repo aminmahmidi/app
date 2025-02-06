@@ -15,7 +15,7 @@ const AddBook = () => {
     e.preventDefault();
     const resultAction = await dispatch(addBook({ title, author,publishDate }));
     if (addBook.fulfilled.match(resultAction)) {
-      navigate('/books');
+      navigate('/');
     }
   };
 

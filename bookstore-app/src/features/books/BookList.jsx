@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchBooks, deleteBook } from "./BookSlice";
 import { Outlet, useNavigate } from "react-router-dom";
-
+import { Book, PencilSimple, Trash } from "@phosphor-icons/react";
+import { Wrapper } from "../books/BookList";
 const BookList = () => {
   const dispatch = useDispatch();
   const { books, status, error } = useSelector((state) => state.books);
@@ -26,7 +27,7 @@ const BookList = () => {
   }
 
   return (
-    <div>
+    <Wrapper>
       <h2>Books</h2>
       <button onClick={() => navigate("/books/add")}>Add Book</button>
       {books.map((e) => {
@@ -35,15 +36,23 @@ const BookList = () => {
       <ul>
         {books.map((book) => (
           <li key={book._id}>
-            {book.title} by {book.author}
-            <button onClick={() => navigate(`/books/edit/${book._id}`)}>
-              Edit
-            </button>
-            <button onClick={() => handleDelete(book._id)}>Delete</button>
+            <div className="thumb">
+              <Book className="thumb-icon" weight="light" />
+            </div>
+            {book.title} <span className="author"> by {book.author} </span>
+            <div className="tasks-container">
+              <button className="task-btn" onClick={() => navigate(`/books/edit/${book._id}`)}>
+                <PencilSimple className="task-icon" weight={"light"} />
+                <span> Edit</span>
+              </button>
+              <button className="task-btn" onClick={() => handleDelete(book._id)}>
+                <Trash className="task-icon" weight={"light"} /> Delete
+              </button>
+            </div>
           </li>
         ))}
       </ul>
-    </div>
+    </Wrapper>
   );
 };
 

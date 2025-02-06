@@ -28,7 +28,7 @@ const EditBook = () => {
       updateBook({ id, bookData: { title, author } })
     );
     if (updateBook.fulfilled.match(resultAction)) {
-      navigate("/books");
+      navigate("/");
     }
   };
 

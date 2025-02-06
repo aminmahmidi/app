@@ -33,8 +33,8 @@ const router = createBrowserRouter([
           <PrivateRoute>
             <BookList />
           </PrivateRoute>
-        ),
-        children:[  {
+        ),},
+        {
           path: "/books/add",
           element: (
             <PrivateRoute>
@@ -49,8 +49,7 @@ const router = createBrowserRouter([
               <EditBook />
             </PrivateRoute>
           ),
-        },]
-      },
+        },
     ]
   },
 ]);

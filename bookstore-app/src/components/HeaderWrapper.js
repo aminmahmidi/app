@@ -1,15 +1,19 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  .header {
-    border-bottom: 1.5px solid var(--input-color);
-    padding: 10px;
+  border-bottom: 1.5px solid var(--input-color);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  .first {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
   }
   .logo-container {
-    background-color: var(--secondary-color);
     color: var(--text-color);
     padding: 12px 15px;
     border-radius: 8px;
@@ -24,16 +28,17 @@ export const Wrapper = styled.div`
 
   .drop-down-container {
     position: relative;
-    align-content: center;
+    display: grid;
   }
-
   .drop-down-btn {
     border: none;
     background-color: var(--second-btn);
+    color: var(--text-color);
     border: 2px solid var(--border);
-    font-size: 18px;
+    font-size: 30px;
     border-radius: 7px;
-    padding: 7px 17px;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
     display: flex;
     align-content: center;
@@ -45,18 +50,18 @@ export const Wrapper = styled.div`
     background-color: var(--second-btn);
   }
   .drop-down {
-    position: absolute;
-    background-color: var(--background-color);
-    border-radius: 10px;
+    background-color: var(--secondary-color);
     color: var(--text-color);
-    margin: 50px 0 50px 0;
-    border: 2px solid red;
+    position: absolute;
+    top: 100%;
     left: 0;
-    padding: 5px 5px;
-    box-shadow: 0px 0px 10px 0px rgba(40, 40, 40, 0.482);
-    animation: dropdown 0.3s alternate;
+    right: 0;
+    min-width: 200px;
+    padding: 10px;
     overflow: hidden;
-    display: flex;
+    border: none;
+    z-index: 1000;
+    border-radius: 20px;
   }
   @keyframes dropdown {
     0% {
@@ -67,9 +72,7 @@ export const Wrapper = styled.div`
     }
   }
   .show-drop-down {
-    display: flex;
-    /* width: 400px; */
-left: -400%;
+    display: block;
   }
   .hide-drop-down {
     display: none;
@@ -78,16 +81,28 @@ left: -400%;
     display: flex;
     align-items: center;
     padding: 5px 5px;
+    margin: 0 10px 0 0;
     width: 100%;
     border-radius: 7px;
     transition: 0.3s;
   }
+  .input-container input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    z-index: 2;
+    cursor: pointer;
+    transition: 0.3s;
+  }
   .input-container input:checked + .radio-icon svg {
     background-color: var(--secondary-color);
+    margin: 0 10px 0 0;
     /* transition: 0.2s; */
   }
   .input-container input:checked + .radio-icon {
-    background-color: rgba(104, 104, 104, 0.162);
+    background-color: rgba(129, 129, 129, 0.16);
     border-radius: 8px;
     transition: 0.3s;
   }
@@ -96,7 +111,7 @@ left: -400%;
     height: 2rem;
     padding: 5px;
     border-radius: 5px;
-    margin: 0 0 0 10px;
+    margin: 0 10px 0 0;
   }
   label {
     margin: 2px 0;

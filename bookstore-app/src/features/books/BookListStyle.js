@@ -5,18 +5,39 @@ export const Wrapper = styled.div`
   justify-content: center;
   .bookList-header {
     padding: 0 75px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  .bookList-header button{
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 20px;
+    background-color: var(--btn-color);
+    color: white;
+    border-radius: 10px;
+    border: none;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+  .bookList-header button:hover{
+    opacity: 0.8;
   }
   ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 10px;
   }
   li {
     flex: 1 1 25%;
     max-width: 18%;
     padding: 10px;
     height: 330px;
-    margin: 10px;
+    margin: 10px 0;
     list-style: none;
     border-radius: 12px;
     background-color: var(--secondary-color);

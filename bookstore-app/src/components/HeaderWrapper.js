@@ -145,11 +145,7 @@ export const Wrapper = styled.div`
     justify-content: space-between;
     transition: 0.4s;
   }
-  .footer {
-    margin-top: 400px;
-    text-align: center;
-    align-content: center;
-    display: flex;
-    height: 100px;
+  .logout-btn:hover{
+    background-color: var(--border);
   }
 `;

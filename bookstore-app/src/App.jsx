@@ -11,12 +11,13 @@ import AddBook from "./features/books/AddBook";
 import EditBook from "./features/books/EditBook";
 import PrivateRoute from "./components/PrivateRoute";
 import Home from "./features/books/Home";
-
+import ErrorPage from "./features/error/ErrorPage";
 const router = createBrowserRouter([
   {
     index: true,
     path: "/login",
     element: <Login />,
+    errorElement: <ErrorPage />,
   },
   {
     path: "/register",
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",

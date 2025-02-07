@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchBooks, deleteBook } from "./BookSlice";
 import { Outlet, useNavigate } from "react-router-dom";
-import { Book, PencilSimple, Trash } from "@phosphor-icons/react";
+import { Book, PencilSimple, Trash, Plus } from "@phosphor-icons/react";
 import { Wrapper } from "../books/BookListStyle";
 import BookLoader from "./BookLoader";
 const BookList = () => {
@@ -30,8 +30,15 @@ const BookList = () => {
   return (
     <Wrapper>
       <div className="bookList-header">
-        <h2>Books</h2>
-        <button onClick={() => navigate("/books/add")}>Add Book</button>
+        <div>
+          <h2>Books</h2>
+        </div>
+
+        <div>
+          <button onClick={() => navigate("/books/add")}>
+            <Plus weight="bold" /> Add Book
+          </button>
+        </div>
       </div>
       {books.map((e) => {
         console.log(e.title);

@@ -5,7 +5,7 @@
   --btn-color: #006bff;
   --second-btn: #ececec;
   --secondary-color: #f4f4f4;
-  --border: #b6b6b6;
+  --border: #d8d8d8;
 }
 
 [data-theme="dark"] {
@@ -27,6 +27,8 @@
   font-family: "poppins";
 }
 body {
+  margin: 0;
+  padding: 0;
   font-family: "poppins";
   background-color: var(--background-color);
   color: var(--text-color);
